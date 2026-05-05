@@ -1,4 +1,4 @@
-# LipaWoo — M-Pesa for WooCommerce (Lite)
+# LipaWoo — M-Pesa STK Push Gateway (Lite)
 
 Accept M-Pesa STK Push payments in WooCommerce using the Safaricom Daraja API. Includes 5 free production transactions.
 

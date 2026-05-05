@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: LipaWoo — M-Pesa for WooCommerce (Lite)
+ * Plugin Name: LipaWoo — M-Pesa STK Push Gateway (Lite)
  * Plugin URI: https://mpesa-woocommerce.wasmer.app
  * Description: Accept M-Pesa STK Push payments in WooCommerce via Safaricom Daraja API. Includes 5 free production transactions. Upgrade to LipaWoo Pro for unlimited.
  * Version: 1.0.0

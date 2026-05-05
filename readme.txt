@@ -1,4 +1,4 @@
-=== LipaWoo — M-Pesa for WooCommerce (Lite) ===
+=== LipaWoo — M-Pesa STK Push Gateway (Lite) ===
 Contributors: fortunedevsolutions
 Tags: mpesa, woocommerce, payment, safaricom, kenya, stk push
 Requires at least: 6.0
