@@ -18,7 +18,12 @@ class LipaWoo_Gateway extends WC_Payment_Gateway {
 		$this->icon               = LIPAWOO_PLUGIN_URL . 'public/images/mpesa-logo.png';
 		$this->has_fields         = true;
 		$this->method_title       = __( 'M-Pesa — LipaWoo Lite', 'lipawoo' );
-		$this->method_description = __( 'Accept M-Pesa STK Push payments via Safaricom Daraja API. <strong>5 free production transactions included.</strong> <a href="' . LIPAWOO_UPGRADE_URL . '" target="_blank">Upgrade to LipaWoo Pro</a> for unlimited production payments.', 'lipawoo' );
+		$this->method_description = sprintf(
+			/* translators: 1: max free transactions number, 2: upgrade URL */
+			__( 'Accept M-Pesa STK Push payments via Safaricom Daraja API. <strong>%1$d free production transactions included.</strong> <a href="%2$s" target="_blank">Upgrade to LipaWoo Pro</a> for unlimited production payments.', 'lipawoo' ),
+			LIPAWOO_MAX_FREE_TXNS,
+			LIPAWOO_UPGRADE_URL
+		);
 		$this->supports           = [ 'products' ];
 
 		add_filter( 'woocommerce_gateway_icon', [ $this, 'filter_icon_html' ], 10, 2 );

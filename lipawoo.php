@@ -237,9 +237,7 @@ function lipawoo_deactivate() {
 function lipawoo_create_tables() {
 	global $wpdb;
 	$charset_collate = $wpdb->get_charset_collate();
-	$table_name      = $wpdb->prefix . 'lipawoo_transactions';
-
-	$sql = "CREATE TABLE IF NOT EXISTS {$table_name} (
+	$sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}lipawoo_transactions (
 		id bigint(20) NOT NULL AUTO_INCREMENT,
 		order_id bigint(20) NOT NULL,
 		checkout_request_id varchar(100) NOT NULL,

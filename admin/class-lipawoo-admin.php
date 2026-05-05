@@ -27,7 +27,6 @@ class LipaWoo_Admin {
 
 	public function transactions_page() {
 		global $wpdb;
-		$table    = $wpdb->prefix . 'lipawoo_transactions';
 		$status   = sanitize_text_field( $_GET['status'] ?? '' );
 		$search   = sanitize_text_field( $_GET['search'] ?? '' );
 		$per_page = 20;
@@ -44,15 +43,15 @@ class LipaWoo_Admin {
 		}
 
 		$transactions = ! empty( $params )
-			? $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$table} {$where} ORDER BY created_at DESC LIMIT %d OFFSET %d", ...array_merge( $params, [ $per_page, $offset ] ) ) )
-			: $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$table} ORDER BY created_at DESC LIMIT %d OFFSET %d", $per_page, $offset ) );
+			? $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}lipawoo_transactions {$where} ORDER BY created_at DESC LIMIT %d OFFSET %d", ...array_merge( $params, [ $per_page, $offset ] ) ) )
+			: $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}lipawoo_transactions ORDER BY created_at DESC LIMIT %d OFFSET %d", $per_page, $offset ) );
 
 		$total = ! empty( $params )
-			? (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table} {$where}", ...$params ) )
-			: (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table}" );
+			? (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->prefix}lipawoo_transactions {$where}", ...$params ) )
+			: (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->prefix}lipawoo_transactions" );
 
 		$total_pages = (int) ceil( $total / $per_page );
-		$stats       = $wpdb->get_row( "SELECT COUNT(*) as total, SUM(CASE WHEN status='completed' THEN amount ELSE 0 END) as total_amount, SUM(CASE WHEN status='completed' THEN 1 ELSE 0 END) as completed, SUM(CASE WHEN status='pending' THEN 1 ELSE 0 END) as pending, SUM(CASE WHEN status='failed' THEN 1 ELSE 0 END) as failed FROM {$table}" );
+		$stats       = $wpdb->get_row( "SELECT COUNT(*) as total, SUM(CASE WHEN status='completed' THEN amount ELSE 0 END) as total_amount, SUM(CASE WHEN status='completed' THEN 1 ELSE 0 END) as completed, SUM(CASE WHEN status='pending' THEN 1 ELSE 0 END) as pending, SUM(CASE WHEN status='failed' THEN 1 ELSE 0 END) as failed FROM {$wpdb->prefix}lipawoo_transactions" );
 
 		include LIPAWOO_PLUGIN_DIR . 'templates/admin-transactions.php';
 	}
