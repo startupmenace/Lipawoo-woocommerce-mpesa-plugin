@@ -33,22 +33,40 @@ class LipaWoo_Admin {
 		$page     = absint( $_GET['paged'] ?? 1 );
 		$offset   = ( $page - 1 ) * $per_page;
 
-		$where = 'WHERE 1=1'; $params = [];
-		if ( $status ) { $where .= ' AND status = %s'; $params[] = $status; }
-		if ( $search ) {
-			$where .= ' AND (mpesa_receipt LIKE %s OR phone_number LIKE %s OR order_id = %d)';
-			$params[] = '%' . $wpdb->esc_like( $search ) . '%';
-			$params[] = '%' . $wpdb->esc_like( $search ) . '%';
-			$params[] = (int) $search;
+		if ( $status && $search ) {
+			$transactions = $wpdb->get_results( $wpdb->prepare(
+				"SELECT * FROM {$wpdb->prefix}lipawoo_transactions WHERE status = %s AND (mpesa_receipt LIKE %s OR phone_number LIKE %s OR order_id = %d) ORDER BY created_at DESC LIMIT %d OFFSET %d",
+				$status, '%' . $wpdb->esc_like( $search ) . '%', '%' . $wpdb->esc_like( $search ) . '%', (int) $search, $per_page, $offset
+			) );
+			$total = (int) $wpdb->get_var( $wpdb->prepare(
+				"SELECT COUNT(*) FROM {$wpdb->prefix}lipawoo_transactions WHERE status = %s AND (mpesa_receipt LIKE %s OR phone_number LIKE %s OR order_id = %d)",
+				$status, '%' . $wpdb->esc_like( $search ) . '%', '%' . $wpdb->esc_like( $search ) . '%', (int) $search
+			) );
+		} elseif ( $status ) {
+			$transactions = $wpdb->get_results( $wpdb->prepare(
+				"SELECT * FROM {$wpdb->prefix}lipawoo_transactions WHERE status = %s ORDER BY created_at DESC LIMIT %d OFFSET %d",
+				$status, $per_page, $offset
+			) );
+			$total = (int) $wpdb->get_var( $wpdb->prepare(
+				"SELECT COUNT(*) FROM {$wpdb->prefix}lipawoo_transactions WHERE status = %s",
+				$status
+			) );
+		} elseif ( $search ) {
+			$transactions = $wpdb->get_results( $wpdb->prepare(
+				"SELECT * FROM {$wpdb->prefix}lipawoo_transactions WHERE (mpesa_receipt LIKE %s OR phone_number LIKE %s OR order_id = %d) ORDER BY created_at DESC LIMIT %d OFFSET %d",
+				'%' . $wpdb->esc_like( $search ) . '%', '%' . $wpdb->esc_like( $search ) . '%', (int) $search, $per_page, $offset
+			) );
+			$total = (int) $wpdb->get_var( $wpdb->prepare(
+				"SELECT COUNT(*) FROM {$wpdb->prefix}lipawoo_transactions WHERE (mpesa_receipt LIKE %s OR phone_number LIKE %s OR order_id = %d)",
+				'%' . $wpdb->esc_like( $search ) . '%', '%' . $wpdb->esc_like( $search ) . '%', (int) $search
+			) );
+		} else {
+			$transactions = $wpdb->get_results( $wpdb->prepare(
+				"SELECT * FROM {$wpdb->prefix}lipawoo_transactions ORDER BY created_at DESC LIMIT %d OFFSET %d",
+				$per_page, $offset
+			) );
+			$total = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->prefix}lipawoo_transactions" );
 		}
-
-		$transactions = ! empty( $params )
-			? $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}lipawoo_transactions {$where} ORDER BY created_at DESC LIMIT %d OFFSET %d", ...array_merge( $params, [ $per_page, $offset ] ) ) )
-			: $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}lipawoo_transactions ORDER BY created_at DESC LIMIT %d OFFSET %d", $per_page, $offset ) );
-
-		$total = ! empty( $params )
-			? (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->prefix}lipawoo_transactions {$where}", ...$params ) )
-			: (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->prefix}lipawoo_transactions" );
 
 		$total_pages = (int) ceil( $total / $per_page );
 		$stats       = $wpdb->get_row( "SELECT COUNT(*) as total, SUM(CASE WHEN status='completed' THEN amount ELSE 0 END) as total_amount, SUM(CASE WHEN status='completed' THEN 1 ELSE 0 END) as completed, SUM(CASE WHEN status='pending' THEN 1 ELSE 0 END) as pending, SUM(CASE WHEN status='failed' THEN 1 ELSE 0 END) as failed FROM {$wpdb->prefix}lipawoo_transactions" );
