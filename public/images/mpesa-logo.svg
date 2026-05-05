@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="none">
+  <rect width="120" height="40" rx="6" fill="#00a651"/>
+  <text x="10" y="27" font-family="Arial, sans-serif" font-size="18" font-weight="900" fill="white" letter-spacing="-0.5">M-PESA</text>
+  <circle cx="108" cy="20" r="8" fill="rgba(255,255,255,0.2)"/>
+  <path d="M105 20l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

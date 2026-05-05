@@ -1,0 +1,418 @@
+/**
+ * M-Pesa Daraja WooCommerce - Admin Styles
+ */
+
+/* ===== SETTINGS PAGE HEADER ===== */
+.lipawoo-admin-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: linear-gradient(135deg, #00a651 0%, #007a3d 100%);
+	border-radius: 12px;
+	padding: 20px 28px;
+	margin: 20px 0;
+	color: white;
+}
+
+.lipawoo-admin-logo {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.lipawoo-admin-logo h2 {
+	color: white;
+	margin: 0 0 4px 0;
+	font-size: 1.25rem;
+}
+
+.lipawoo-version-badge {
+	background: rgba(255,255,255,0.2);
+	border-radius: 20px;
+	padding: 2px 10px;
+	font-size: 0.75rem;
+	margin-right: 8px;
+}
+
+.lipawoo-env-badge {
+	border-radius: 20px;
+	padding: 2px 10px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.lipawoo-env-sandbox {
+	background: #fbbf24;
+	color: #92400e;
+}
+
+.lipawoo-env-production {
+	background: #4ade80;
+	color: #14532d;
+}
+
+.lipawoo-admin-links a {
+	color: rgba(255,255,255,0.85);
+	text-decoration: none;
+	font-size: 0.875rem;
+	background: rgba(255,255,255,0.15);
+	padding: 8px 16px;
+	border-radius: 8px;
+	transition: background 0.2s;
+}
+
+.lipawoo-admin-links a:hover {
+	background: rgba(255,255,255,0.25);
+}
+
+/* ===== STATUS CARDS ===== */
+.lipawoo-admin-status {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+	margin-bottom: 24px;
+}
+
+.lipawoo-status-card {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.lipawoo-status-card h3 {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #374151;
+	margin: 0 0 12px 0;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.lipawoo-copy-url {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	padding: 8px 12px;
+	margin-bottom: 8px;
+}
+
+.lipawoo-copy-url code {
+	flex: 1;
+	font-size: 0.75rem;
+	color: #374151;
+	word-break: break-all;
+	background: none;
+	padding: 0;
+}
+
+.lipawoo-copy-btn {
+	background: #00a651;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 10px;
+	font-size: 0.75rem;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: background 0.2s;
+}
+
+.lipawoo-copy-btn:hover {
+	background: #007a3d;
+}
+
+.lipawoo-copy-btn.copied {
+	background: #16a34a;
+}
+
+.lipawoo-hint {
+	font-size: 0.75rem;
+	color: #9ca3af;
+	margin: 0;
+}
+
+.lipawoo-test-result {
+	display: inline-block;
+	margin-left: 12px;
+	font-size: 0.875rem;
+}
+
+.lipawoo-test-result.success {
+	color: #16a34a;
+}
+
+.lipawoo-test-result.error {
+	color: #dc2626;
+}
+
+/* ===== ORDER META ===== */
+.lipawoo-order-meta {
+	margin-top: 20px;
+	padding: 16px;
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+}
+
+.lipawoo-order-meta h3 {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: #00a651;
+	margin: 0 0 12px 0;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.lipawoo-meta-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.8125rem;
+}
+
+.lipawoo-meta-table tr td:first-child {
+	color: #6b7280;
+	font-weight: 500;
+	width: 40%;
+	padding: 4px 0;
+}
+
+.lipawoo-meta-table tr td:last-child {
+	color: #111;
+	padding: 4px 0;
+}
+
+.lipawoo-admin-actions {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid #e2e8f0;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.lipawoo-query-result {
+	font-size: 0.8125rem;
+}
+
+/* ===== TRANSACTIONS PAGE ===== */
+.lipawoo-admin-wrap {
+	max-width: 1400px;
+}
+
+.lipawoo-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 16px;
+	margin: 24px 0;
+}
+
+.lipawoo-stat-card {
+	background: white;
+	border-radius: 10px;
+	padding: 18px;
+	border-left: 4px solid #e2e8f0;
+}
+
+.lipawoo-stat-total { border-left-color: #6366f1; }
+.lipawoo-stat-completed { border-left-color: #22c55e; }
+.lipawoo-stat-pending { border-left-color: #f59e0b; }
+.lipawoo-stat-failed { border-left-color: #ef4444; }
+.lipawoo-stat-revenue { border-left-color: #00a651; }
+
+.lipawoo-stat-value {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #111;
+	margin-bottom: 4px;
+}
+
+.lipawoo-stat-label {
+	font-size: 0.75rem;
+	color: #6b7280;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.lipawoo-filters {
+	margin-bottom: 16px;
+}
+
+.lipawoo-filter-row {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.lipawoo-search-input {
+	flex: 1;
+	max-width: 300px;
+}
+
+.lipawoo-transactions-table {
+	margin-top: 0 !important;
+}
+
+.lipawoo-no-data {
+	text-align: center;
+	color: #9ca3af;
+	padding: 40px !important;
+}
+
+.lipawoo-no-receipt {
+	color: #d1d5db;
+}
+
+/* Status badges */
+.lipawoo-status-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 10px;
+	border-radius: 20px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.lipawoo-status-completed {
+	background: #dcfce7;
+	color: #16a34a;
+}
+
+.lipawoo-status-pending {
+	background: #fef3c7;
+	color: #92400e;
+}
+
+.lipawoo-status-failed {
+	background: #fee2e2;
+	color: #dc2626;
+}
+
+/* Pagination */
+.lipawoo-pagination {
+	margin-top: 16px;
+	padding-top: 16px;
+	border-top: 1px solid #e2e8f0;
+	display: flex;
+	justify-content: center;
+}
+
+@media (max-width: 1024px) {
+	.lipawoo-stats-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.lipawoo-admin-status {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 640px) {
+	.lipawoo-admin-header {
+		flex-direction: column;
+		gap: 12px;
+		text-align: center;
+	}
+
+	.lipawoo-stats-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Callback URL error notice */
+.lipawoo-callback-error.notice {
+	margin: 0 0 8px 0;
+	padding: 10px 14px;
+}
+.lipawoo-callback-error p {
+	margin: 0;
+	font-size: 0.8125rem;
+}
+
+/* ===== DELETE / BULK ACTIONS ===== */
+.lipawoo-actions-cell {
+	white-space: nowrap;
+}
+
+.lipawoo-delete-btn:hover {
+	background: #dc2626 !important;
+	color: white !important;
+	border-color: #dc2626 !important;
+}
+
+.lipawoo-transactions-table input[type="checkbox"] {
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
+}
+
+tr.lipawoo-selected-row {
+	background: #fff8f8 !important;
+}
+
+/* ===== CREDENTIALS CHECKLIST ===== */
+.lipawoo-checklist-table {
+	border-collapse: collapse;
+	font-size: 0.875rem;
+}
+
+.lipawoo-checklist-table th {
+	background: #f8fafc;
+	padding: 10px 14px;
+	text-align: left;
+	font-weight: 600;
+	color: #374151;
+	border-bottom: 2px solid #e2e8f0;
+}
+
+.lipawoo-checklist-table td {
+	padding: 10px 14px;
+	border-bottom: 1px solid #f1f5f9;
+	vertical-align: top;
+	color: #374151;
+	line-height: 1.6;
+}
+
+.lipawoo-checklist-table td ul {
+	margin: 6px 0 0 16px;
+	line-height: 1.8;
+}
+
+.lipawoo-checklist-table tr:hover td {
+	background: #f8fafc;
+}
+
+/* ===== LITE BADGE ===== */
+.lipawoo-lite-badge {
+	background: #fef3c7;
+	color: #92400e;
+	border-radius: 20px;
+	padding: 3px 10px;
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-left: 6px;
+}
+
+.lipawoo-upgrade-btn {
+	background: linear-gradient(135deg, #00a651, #007a3d);
+	color: #fff !important;
+	text-decoration: none;
+	padding: 10px 20px;
+	border-radius: 8px;
+	font-weight: 700;
+	font-size: 0.9rem;
+	transition: opacity 0.2s;
+	white-space: nowrap;
+}
+
+.lipawoo-upgrade-btn:hover {
+	opacity: 0.9;
+}

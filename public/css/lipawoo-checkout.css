@@ -1,0 +1,462 @@
+/* ===== M-PESA GATEWAY ICON ===== */
+/* Target every selector WooCommerce and themes use for payment icons */
+.payment_method_mpesa_daraja img,
+.payment_method_mpesa_daraja label img,
+.wc_payment_method.payment_method_mpesa_daraja img,
+li.payment_method_mpesa_daraja img,
+img.lipawoo-gateway-icon {
+	display: inline-block !important;
+	height: 24px !important;
+	width: auto !important;
+	max-width: 80px !important;
+	max-height: 24px !important;
+	min-height: unset !important;
+	min-width: unset !important;
+	object-fit: contain !important;
+	vertical-align: middle !important;
+	margin: 0 0 0 8px !important;
+	padding: 0 !important;
+	border: none !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
+}
+
+/**
+ * M-Pesa Daraja WooCommerce - Frontend Styles
+ */
+
+/* ===== CHECKOUT PAYMENT FIELDS ===== */
+.lipawoo-payment-fields {
+	margin-top: 12px;
+}
+
+.lipawoo-description {
+	color: #555;
+	font-size: 0.9rem;
+	margin-bottom: 16px;
+}
+
+.lipawoo-field-group {
+	margin-bottom: 20px;
+}
+
+.lipawoo-field-group label {
+	display: block;
+	font-weight: 600;
+	font-size: 0.875rem;
+	color: #333;
+	margin-bottom: 8px;
+}
+
+.lipawoo-field-group label .required {
+	color: #e74c3c;
+	text-decoration: none;
+}
+
+.lipawoo-phone-input-wrapper {
+	display: flex;
+	align-items: center;
+	border: 1.5px solid #d1d5db !important;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	background: #ffffff !important;
+	color: #111111 !important;
+}
+
+.lipawoo-phone-input-wrapper:focus-within {
+	border-color: #00a651;
+	box-shadow: 0 0 0 3px rgba(0, 166, 81, 0.15);
+}
+
+.lipawoo-country-code {
+	background: #f3f4f6 !important;
+	padding: 12px 14px;
+	border-right: 1.5px solid #d1d5db;
+	color: #374151 !important;
+	-webkit-text-fill-color: #374151 !important;
+	font-weight: 600;
+	font-size: 0.9rem;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.lipawoo-phone-input {
+	flex: 1;
+	border: none !important;
+	outline: none !important;
+	box-shadow: none !important;
+	padding: 12px 14px !important;
+	font-size: 1rem !important;
+	background: #ffffff !important;
+	color: #111111 !important;
+	-webkit-text-fill-color: #111111 !important;  /* overrides autocomplete yellow bg */
+}
+
+.lipawoo-phone-input::placeholder {
+	color: #9ca3af !important;
+	-webkit-text-fill-color: #9ca3af !important;
+	opacity: 1;
+}
+
+.lipawoo-phone-input:-webkit-autofill,
+.lipawoo-phone-input:-webkit-autofill:hover,
+.lipawoo-phone-input:-webkit-autofill:focus {
+	-webkit-text-fill-color: #111111 !important;
+	-webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+	box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
+
+.lipawoo-field-hint {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 8px;
+	font-size: 0.8rem;
+	color: #6b7280;
+}
+
+.lipawoo-field-hint svg {
+	flex-shrink: 0;
+	color: #9ca3af;
+}
+
+/* STK Steps */
+.lipawoo-stk-info {
+	margin-top: 16px;
+	padding: 14px;
+	background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+	border: 1px solid #bbf7d0;
+	border-radius: 10px;
+}
+
+.lipawoo-stk-steps {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.lipawoo-step {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+	text-align: center;
+}
+
+.lipawoo-step-icon {
+	width: 32px;
+	height: 32px;
+	background: #00a651;
+	color: white;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 0.85rem;
+}
+
+.lipawoo-step-text {
+	font-size: 0.75rem;
+	color: #374151;
+	max-width: 80px;
+}
+
+.lipawoo-step-arrow {
+	color: #9ca3af;
+	font-size: 1.2rem;
+	margin-bottom: 16px;
+}
+
+/* ===== PAYMENT WAITING PAGE ===== */
+.lipawoo-waiting-container {
+	max-width: 520px;
+	margin: 40px auto;
+	padding: 0 20px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.lipawoo-waiting-header {
+	text-align: center;
+	margin-bottom: 32px;
+}
+
+.lipawoo-phone-icon {
+	width: 80px;
+	height: 80px;
+	background: linear-gradient(135deg, #00a651 0%, #007a3d 100%);
+	border-radius: 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 16px;
+	box-shadow: 0 8px 24px rgba(0, 166, 81, 0.3);
+	position: relative;
+	overflow: hidden;
+}
+
+.lipawoo-phone-screen {
+	background: rgba(255,255,255,0.15);
+	border-radius: 10px;
+	padding: 8px;
+	width: 60px;
+}
+
+.lipawoo-phone-notification {
+	background: white;
+	border-radius: 6px;
+	padding: 4px 6px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.lipawoo-lipawoo-logo-sm {
+	width: 16px;
+	height: 16px;
+	background: #00a651;
+	border-radius: 3px;
+	color: white;
+	font-size: 0.6rem;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.lipawoo-notif-text {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.lipawoo-notif-text strong {
+	font-size: 0.45rem;
+	color: #111;
+	line-height: 1;
+}
+
+.lipawoo-notif-text span {
+	font-size: 0.4rem;
+	color: #666;
+	line-height: 1;
+}
+
+.lipawoo-waiting-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #111;
+	margin: 0;
+}
+
+/* Status Area */
+.lipawoo-status-area {
+	text-align: center;
+	margin-bottom: 28px;
+}
+
+.lipawoo-status-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: #f8fafc;
+	border: 1.5px solid #e2e8f0;
+	border-radius: 50px;
+	padding: 10px 20px;
+	margin-bottom: 16px;
+	font-size: 0.9rem;
+	color: #374151;
+}
+
+.lipawoo-spinner {
+	width: 18px;
+	height: 18px;
+	border: 2px solid #e2e8f0;
+	border-top-color: #00a651;
+	border-radius: 50%;
+	animation: lipawoo-spin 0.8s linear infinite;
+}
+
+@keyframes lipawoo-spin {
+	to { transform: rotate(360deg); }
+}
+
+.lipawoo-progress-bar {
+	background: #e2e8f0;
+	border-radius: 50px;
+	height: 6px;
+	overflow: hidden;
+	margin: 0 auto 8px;
+	max-width: 300px;
+}
+
+.lipawoo-progress-fill {
+	height: 100%;
+	background: linear-gradient(90deg, #00a651 0%, #34d399 100%);
+	border-radius: 50px;
+	width: 100%;
+	transform-origin: left;
+	animation: lipawoo-deplete linear forwards;
+}
+
+.lipawoo-timer-display {
+	font-size: 0.8rem;
+	color: #9ca3af;
+}
+
+#lipawoo-timer {
+	font-weight: 600;
+	color: #374151;
+}
+
+/* Instructions */
+.lipawoo-instructions-card {
+	background: #fff;
+	border: 1.5px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 20px 24px;
+	margin-bottom: 20px;
+}
+
+.lipawoo-instructions-card h3 {
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: #374151;
+	margin: 0 0 14px 0;
+}
+
+.lipawoo-steps-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.lipawoo-steps-list li {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 0.875rem;
+	color: #374151;
+}
+
+.lipawoo-step-num {
+	width: 26px;
+	height: 26px;
+	background: #00a651;
+	color: white;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.75rem;
+	font-weight: 700;
+	flex-shrink: 0;
+}
+
+/* Success & Failed States */
+.lipawoo-success-state,
+.lipawoo-failed-state {
+	text-align: center;
+	padding: 32px 20px;
+}
+
+.lipawoo-success-icon,
+.lipawoo-failed-icon {
+	width: 64px;
+	height: 64px;
+	margin: 0 auto 16px;
+}
+
+.lipawoo-success-icon svg,
+.lipawoo-failed-icon svg {
+	width: 100%;
+	height: 100%;
+}
+
+.lipawoo-success-state h3 {
+	color: #16a34a;
+	font-size: 1.25rem;
+	margin-bottom: 8px;
+}
+
+.lipawoo-failed-state h3 {
+	color: #dc2626;
+	font-size: 1.25rem;
+	margin-bottom: 8px;
+}
+
+/* Buttons */
+.lipawoo-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 8px;
+	font-size: 0.9rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	text-decoration: none;
+}
+
+.lipawoo-btn-primary {
+	background: #00a651;
+	color: white;
+}
+
+.lipawoo-btn-primary:hover {
+	background: #007a3d;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(0, 166, 81, 0.3);
+}
+
+/* Order Summary */
+.lipawoo-order-summary {
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.lipawoo-order-summary-row {
+	display: flex;
+	justify-content: space-between;
+	padding: 12px 16px;
+	font-size: 0.875rem;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.lipawoo-order-summary-row:last-child {
+	border-bottom: none;
+}
+
+/* Thank you page */
+.lipawoo-thankyou-notice {
+	background: #f0fdf4;
+	border: 1px solid #bbf7d0;
+	border-left: 4px solid #00a651;
+	border-radius: 8px;
+	padding: 16px 20px;
+	margin-bottom: 20px;
+	color: #166534;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+	.lipawoo-stk-steps {
+		flex-direction: column;
+	}
+	.lipawoo-step-arrow {
+		transform: rotate(90deg);
+		margin: 0;
+	}
+}
