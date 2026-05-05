@@ -5,7 +5,6 @@
  * Description: Accept M-Pesa STK Push payments in WooCommerce via Safaricom Daraja API. Includes 5 free production transactions. Upgrade to LipaWoo Pro for unlimited.
  * Version: 1.0.0
  * Author: Fortune Dev Solutions
- * Author URI: https://mpesa-woocommerce.wasmer.app
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: lipawoo
